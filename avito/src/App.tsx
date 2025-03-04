@@ -1,5 +1,4 @@
 import './App.css'
-import Request from './pages/Request'
 import AppRoutes from './routes/AppRoutes'
 import { Link, BrowserRouter } from 'react-router-dom'
 
@@ -18,9 +17,6 @@ function App() {
 					</li>
 					<li>
 						<Link to="/list">Просмотреть созданные объявления</Link>
-					</li>
-					<li>
-						<Link to="/request">Отправить запрос</Link>
 					</li>
 				</ul>
 			</nav>

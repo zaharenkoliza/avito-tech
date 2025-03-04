@@ -43,7 +43,7 @@ const AdItem: React.FC<AdProps> = ({ data }) => {
 				</>
 			)}
 
-			<button>Редактировать объявление</button>
+			<a href={`/form/${data.id}`}>Редактировать объявление</a>
 		</div>
 	);
 };

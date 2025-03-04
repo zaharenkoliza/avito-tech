@@ -7,7 +7,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ data }) => {
 	return (
-		<div className={styles.card}>
+		<a className={styles.card} href={`/item/${data.id}`}>
 			<img src={data.name} alt={data.name} className="card-image" />
 			<h2 className="card-title">{data.name}</h2>
 			<p className="card-description">{data.name}</p>
@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
 					<p>Work Schedule: {data.workSchedule}</p>
 				</>
 			)}
-		</div>
+		</a>
 	);
 };
 

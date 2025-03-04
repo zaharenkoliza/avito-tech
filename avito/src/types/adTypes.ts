@@ -1,9 +1,10 @@
 export interface AdEstate {
-	id: number;
+	id: number | undefined;
 	name: string;
 	description: string;
 	location: string;
 	type: string;
+	image: string | undefined;
 	propertyType: string;
 	area: number;
 	rooms: number;
@@ -11,7 +12,7 @@ export interface AdEstate {
 }
 
 export interface AdCar {
-	id: number;
+	id: number | undefined;
 	name: string;
 	description: string;
 	location: string;
@@ -23,7 +24,7 @@ export interface AdCar {
 }
 
 export interface AdService {
-	id: number;
+	id: number | undefined;
 	name: string;
 	description: string;
 	location: string;
@@ -34,4 +35,23 @@ export interface AdService {
 	workSchedule: string;
 }
 
-export type Ad = AdEstate | AdService | AdCar;
+export type Ad = {
+	id: number | undefined;
+	name: string;
+	description: string;
+	location: string;
+	type: string;
+	image: string | undefined;
+	propertyType?: string;
+	area?: number;
+	rooms?: number;
+	price?: number;
+	brand?: string;
+	model?: string;
+	year?: number;
+	mileage?: number;
+	serviceType?: string;
+	experience?: number;
+	cost?: number;
+	workSchedule?: string;
+};
