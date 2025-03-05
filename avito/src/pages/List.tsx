@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../components/Card/Card';
 import ApiService from '../api/api';
 import { Ad } from '../types/adTypes';
-import Pagination from '../components/Pagination/Pagination';
+// import Pagination from '../components/Pagination/Pagination';
+import Pagination from '@mui/material/Pagination';
+import CardAd from '../components/Card/Card';
+import styles from './List.module.css';
 
 const List: React.FC = () => {
 	const [ads, setAds] = useState<Ad[]>([]);
@@ -47,12 +49,14 @@ const List: React.FC = () => {
 	}
 
 	return (
-	<div>
-		{currentAds.map(ad => (
-			<Card key={ad.id} data={ad}/>
-		))}
-		<Pagination adPerPage={AD_PER_PAGE} totalAds={ads.length} paginate={paginate}></Pagination>
-	</div>
+		<>
+		<div className={styles.cards}>
+			{currentAds.map(ad => (
+				<CardAd key={ad.id} data={ad}/>
+			))}
+		</div>
+			<Pagination count={Math.ceil(currentAds.length / AD_PER_PAGE) + 1} color="secondary" onChange={(e, number) => paginate(number)}></Pagination>
+		</>
 	);
 };
 

@@ -45,6 +45,21 @@ const StepFirst: React.FC<StepProps> = ({ ad, setAd, func }) => {
 				/>
 			</div>
 			<div>
+				<label htmlFor="image">Фото:</label>
+				<input
+					id="image"
+					type="text"
+					placeholder="Введите ссылку на изображение"
+					value={ad.image}
+					onChange={(e) =>
+						setAd((prevAd) => ({
+							...prevAd,
+							image: e.target.value,
+						}))}
+					required
+				/>
+			</div>
+			<div>
 				<label htmlFor="type">Тип объявления:</label>
 				<select
 					id="type"

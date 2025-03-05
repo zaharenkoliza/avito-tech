@@ -4,9 +4,6 @@ import { StepProps } from "../../types/StepProps";
 const StepSecond: React.FC<StepProps> = ({ ad, setAd, func, load }) => {
 		return (
 		<>
-			<button onClick={func}>
-				Назад
-			</button>
 			{ad.type === 'Недвижимость' && (
 				<>
 				<div>
@@ -128,6 +125,10 @@ const StepSecond: React.FC<StepProps> = ({ ad, setAd, func, load }) => {
 				</div>
 				</>
 			)}
+
+			<button onClick={func}>
+				Назад
+			</button>
 
 			<button type="submit" disabled={load}>
 					{load ? 'Отправка...' : 'Отправить'}

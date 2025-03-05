@@ -73,7 +73,7 @@ const Form: React.FC = () => {
 			};
 			fetchAd();
 		}
-	});
+	}, [id, navigate]);
 
 	return (
 		<div>

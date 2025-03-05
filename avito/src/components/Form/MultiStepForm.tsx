@@ -62,7 +62,7 @@ const MultiStepForm: React.FC<MultiStepFormProp> = ({ ad, setAd }) => {
 			// setResponse(result.data);
 
 			console.log(result);
-			if (result.statusText !== 'Created') {
+			if (result.statusText !== 'Created' && result.statusText !== 'OK') {
 				setError('Произошла ошибка');
 			}
 			else {
