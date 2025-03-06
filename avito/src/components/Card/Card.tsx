@@ -30,7 +30,10 @@ const CardAd: React.FC<CardProps> = ({ data }) => {
 				{data.name}
 				</Typography>
 				<Typography variant="body2" sx={{ color: 'text.secondary' }}>
-				{data.description}
+				{data.location}
+				</Typography>
+				<Typography variant="body2" sx={{ color: 'text.secondary' }}>
+				{data.type}
 				</Typography>
 			</CardContent>
 			<CardActions>

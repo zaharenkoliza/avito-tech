@@ -1,5 +1,15 @@
 import AppRoutes from './routes/AppRoutes'
 import { Link, BrowserRouter } from 'react-router-dom'
+import './app.css';
+import { Icon, SvgIcon, SvgIconProps } from '@mui/material';
+
+function HomeIcon(props: SvgIconProps) {
+	return (
+		<SvgIcon {...props}>
+			<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+		</SvgIcon>
+	);
+}
 
 function App() {
 //   const [count, setCount] = useState(0)
@@ -9,17 +19,20 @@ function App() {
 			<nav>
 				<ul>
 					<li>
-						<Link to="/">Главная</Link>
+						<Link to="/list">
+							<HomeIcon color="primary" />
+						</Link>
 					</li>
 					<li>
-						<Link to="/form">Создать объявление</Link>
-					</li>
-					<li>
-						<Link to="/list">Просмотреть созданные объявления</Link>
+						<Link to="/form">
+							<Icon color="primary">add_circle</Icon>
+						</Link>
 					</li>
 				</ul>
 			</nav>
-			<AppRoutes />
+			<main>
+				<AppRoutes />
+			</main>
 		</BrowserRouter>
     // <>
     //   <div>

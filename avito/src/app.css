@@ -1,0 +1,18 @@
+body {
+	margin: 0;
+	padding: 0;
+	main {
+		max-width: 1440px;
+		margin: auto;
+
+	}
+
+	> div > nav {
+		background-color: bisque;
+		> ul {
+			display: flex;
+			list-style: none;
+		}
+	}
+
+}

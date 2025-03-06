@@ -5,6 +5,8 @@ import { Ad } from '../types/adTypes';
 import Pagination from '@mui/material/Pagination';
 import CardAd from '../components/Card/Card';
 import styles from './List.module.css';
+import { Icon } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const List: React.FC = () => {
 	const [ads, setAds] = useState<Ad[]>([]);
@@ -50,6 +52,9 @@ const List: React.FC = () => {
 
 	return (
 		<>
+			<Link to="/form">
+				<Icon color="primary">add_circle</Icon>
+			</Link>
 		<div className={styles.cards}>
 			{currentAds.map(ad => (
 				<CardAd key={ad.id} data={ad}/>

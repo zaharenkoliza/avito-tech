@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from '../pages/Home';
 import Form from '../pages/Form';
 import List from '../pages/List';
 import AdPage from '../pages/AdPage';
@@ -8,7 +7,7 @@ import AdPage from '../pages/AdPage';
 const AppRoutes: React.FC = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<Home />} />
+			<Route path="/" element={<List />} />
 			<Route path="/form" element={<Form />} />
 			<Route path="/form/:id" element={<Form />} />
 			<Route path="/list" element={<List />} />
