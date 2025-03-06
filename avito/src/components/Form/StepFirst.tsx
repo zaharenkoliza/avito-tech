@@ -1,86 +1,86 @@
+import { Button, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { StepProps } from "../../types/StepProps";
+import TextField from '@mui/material/TextField';
 
 const StepFirst: React.FC<StepProps> = ({ ad, setAd, func }) => {
 	return (
 		<>
-			<div>
-				<label htmlFor="name">Название объявления:</label>
-				<input
-					id="name"
-					type="text"
-					value={ad.name}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							name: e.target.value,
-						}))}
-					required
-				/>
-			</div>
-			<div>
-				<label htmlFor="description">Описание объявления:</label>
-				<textarea
-					id="description"
-					value={ad.description}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							description: e.target.value,
-						}))}
-					required
-				/>
-			</div>
-			<div>
-				<label htmlFor="location">Локация:</label>
-				<input
-					id="location"
-					type="text"
-					value={ad.location}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							location: e.target.value,
-						}))}
-					required
-				/>
-			</div>
-			<div>
-				<label htmlFor="image">Фото:</label>
-				<input
-					id="image"
-					type="text"
-					placeholder="Введите ссылку на изображение"
-					value={ad.image}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							image: e.target.value,
-						}))}
-					required
-				/>
-			</div>
-			<div>
-				<label htmlFor="type">Тип объявления:</label>
-				<select
+			<TextField 
+				id="name" 
+				onChange={(e) =>
+					setAd((prevAd) => ({
+						...prevAd,
+						name: e.target.value,
+					}))} 
+				label="Название объявления" 
+				value={ad.name} 
+				variant="filled" 
+				required
+			/>
+			<TextField 
+				id="description" 
+				onChange={(e) =>
+					setAd((prevAd) => ({
+						...prevAd,
+						description: e.target.value,
+					}))} 
+				label="Описание объявления" 
+				value={ad.description} 
+				rows={4}
+				variant="filled" 
+				required
+				multiline
+			/>
+			<TextField 
+				id="location" 
+				onChange={(e) =>
+					setAd((prevAd) => ({
+						...prevAd,
+						location: e.target.value,
+					}))} 
+				label="Локация" 
+				value={ad.location}
+				variant="filled" 
+				required
+			/>
+			<TextField 
+				id="image" 
+				onChange={(e) =>
+					setAd((prevAd) => ({
+						...prevAd,
+						image: e.target.value,
+					}))} 
+				label="Фото" 
+				value={ad.image}
+				variant="filled"
+				placeholder="Введите ссылку на изображение"
+			/>
+
+			<FormControl variant="filled">
+				<InputLabel id="type-label">Тип объявления</InputLabel>
+				<Select
+					labelId="type-label"
 					id="type"
 					value={ad.type}
+					label="Выберите тип"
 					onChange={(e) =>
 						setAd((prevAd) => ({
 							...prevAd,
 							type: e.target.value,
 						}))}
 					required
-				>
-					<option value="">Выберите тип</option>
-					<option value="Недвижимость">Недвижимость</option>
-					<option value="Авто">Авто</option>
-					<option value="Услуги">Услуги</option>
-				</select>
-			</div>
+					>
+					<MenuItem value="Недвижимость">Недвижимость</MenuItem>
+					<MenuItem value="Авто">Авто</MenuItem>
+					<MenuItem value="Услуги">Услуги</MenuItem>
+				</Select>
+			</FormControl>
 
-			{ad.type && <button onClick={func}>
+			
+
+			{ad.type && ad.name && ad.description && ad.location && <Button variant="outlined" onClick={func}>
 				Далее
-			</button>}
+			</Button>}
 			
 		</>
 	);

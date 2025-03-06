@@ -5,6 +5,8 @@ import { Ad } from "../../types/adTypes";
 import ApiService from "../../api/api";
 import { useNavigate, useParams } from "react-router-dom";
 
+import styles from './Form.module.css';
+
 type MultiStepFormProp = {
 	ad: Ad;
 	setAd: React.Dispatch<React.SetStateAction<Ad>>;
@@ -80,7 +82,7 @@ const MultiStepForm: React.FC<MultiStepFormProp> = ({ ad, setAd }) => {
 
 	return (
 		<>
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className={styles.form}>
 			{renderStep()}
 		</form>
 

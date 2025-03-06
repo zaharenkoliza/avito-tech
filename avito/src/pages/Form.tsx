@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ApiService from '../api/api';
 import { Ad } from '../types/adTypes';
 import MultiStepForm from '../components/Form/MultiStepForm';
+import { SvgIcon, SvgIconProps } from '@mui/material';
 
 const emptyAd: Ad = {
 	id: undefined,
@@ -12,6 +13,14 @@ const emptyAd: Ad = {
 	type: '',
 	image: undefined
 };
+
+function HomeIcon(props: SvgIconProps) {
+	return (
+		<SvgIcon {...props}>
+			<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+		</SvgIcon>
+	);
+}
 
 const Form: React.FC = () => {
 	const { id } = useParams<{ id: string }>();
@@ -81,6 +90,10 @@ const Form: React.FC = () => {
 			<MultiStepForm ad={ad} setAd={setAd} ></MultiStepForm>
 
 			{error && <div style={{ color: 'red' }}>Ошибка: {error}</div>}
+
+			<Link to="/list">
+				<HomeIcon color="primary" />
+			</Link>
 		</div>
 	);
 };

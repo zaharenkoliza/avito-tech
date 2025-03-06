@@ -1,68 +1,13 @@
 
+import { Button } from "@mui/material";
 import { StepProps } from "../../types/StepProps";
+import EstateStep from "./EstateStep";
 
 const StepSecond: React.FC<StepProps> = ({ ad, setAd, func, load }) => {
 		return (
 		<>
 			{ad.type === 'Недвижимость' && (
-				<>
-				<div>
-					<label htmlFor="propertyType">Подтип недвижимости:</label>
-					<input
-					id="propertyType"
-					type="text"
-					value={ad.propertyType}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							propertyType: e.target.value,
-						}))}
-					required
-					/>
-				</div>
-				<div>
-					<label htmlFor="area">Площадь (кв. м):</label>
-					<input
-					id="area"
-					type="number"
-					value={ad.area}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							area: Number(e.target.value),
-						}))}
-					required
-					/>
-				</div>
-				<div>
-					<label htmlFor="rooms">Количество комнат:</label>
-					<input
-					id="rooms"
-					type="number"
-					value={ad.rooms}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							rooms: Number(e.target.value),
-						}))}
-					required
-					/>
-				</div>
-				<div>
-					<label htmlFor="price">Цена:</label>
-					<input
-					id="price"
-					type="number"
-					value={ad.price}
-					onChange={(e) =>
-						setAd((prevAd) => ({
-							...prevAd,
-							price: Number(e.target.value),
-						}))}
-					required
-					/>
-				</div>
-				</>
+				<EstateStep ad={ad} setAd={setAd}/>
 			)}
 
 			{ad.type === 'Авто' && (
@@ -126,13 +71,13 @@ const StepSecond: React.FC<StepProps> = ({ ad, setAd, func, load }) => {
 				</>
 			)}
 
-			<button onClick={func}>
+			<Button variant="outlined" onClick={func}>
 				Назад
-			</button>
+			</Button>
 
-			<button type="submit" disabled={load}>
-					{load ? 'Отправка...' : 'Отправить'}
-			</button>
+			<Button variant="outlined" type="submit" disabled={load}>
+				{load ? 'Отправка...' : 'Отправить'}
+			</Button>
 		</>
 	);
 };
